@@ -1,0 +1,21 @@
+import java.time.Year
+
+fun main() {
+    val currentYear = Year.now().value
+    var year = currentYear
+
+    println("Next 20 leap years:")
+    var count = 0
+
+    while (count < 20) {
+        if (isLeapYear(year)) {
+            println(year)
+            count++
+        }
+        year++
+    }
+}
+
+fun isLeapYear(year: Int): Boolean {
+    return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
+}
