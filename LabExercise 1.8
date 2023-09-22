@@ -1,0 +1,37 @@
+import java.util.Scanner
+
+fun isPrime(number: Int): Boolean {
+    if (number <= 1) {
+        return false
+    }
+    if (number <= 3) {
+        return true
+    }
+    if (number % 2 == 0 || number % 3 == 0) {
+        return false
+    }
+    var x = 5
+    while (x * x <= number) {
+        if (number % x == 0 || number % (x + 2) == 0) {
+            return false
+        }
+        x += 6
+    }
+    return true
+}
+
+fun main() {
+    val scanner = Scanner(System.`in`)
+
+    print("Enter the limit of numbers: ")
+    val limit = scanner.nextInt()
+
+    println("Prime numbers up to $limit:")
+    for (i in 2..limit) {
+        if (isPrime(i)) {
+            println(i)
+        }
+    }
+
+    scanner.close()
+}
