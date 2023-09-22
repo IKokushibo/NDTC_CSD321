@@ -1,0 +1,20 @@
+fun main() {
+    val maxNumber = 12
+
+    println("Multiplication Table (up to $maxNumber):\n")
+
+
+    print("    |")
+    for (column in 1..maxNumber) {
+        print("%4d".format(column))
+    }
+    println("\n-------------------------------------------------------")
+
+    for (row in 1..maxNumber) {
+        print("%3d |".format(row))
+        for (column in 1..maxNumber) {
+            print("%4d".format(row * column))
+        }
+        println()
+    }
+}
