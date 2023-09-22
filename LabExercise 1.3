@@ -1,0 +1,20 @@
+import java.util.Scanner
+
+fun main() {
+    val scanner = Scanner(System.`in`)
+
+    while (true) {
+        print("Enter your name: ")
+
+        val name = scanner.nextLine()
+
+        if (name == "Alice" || name == "Bob") {
+            println("Hello, $name! Nice to meet you.")
+            break
+        } else {
+            println("Sorry, we only greet Alice and Bob. Please try again.")
+        }
+    }
+
+    scanner.close()
+}
