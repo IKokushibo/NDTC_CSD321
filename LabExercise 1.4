@@ -1,0 +1,23 @@
+import java.util.Scanner
+
+fun main() {
+    val scanner = Scanner(System.`in`)
+
+    print("Enter a number (n): ")
+    val n = scanner.nextInt()
+
+    val sum = calculateSum(n)
+
+
+    println("The sum of numbers from 1 to $n is: $sum")
+
+    scanner.close()
+}
+
+fun calculateSum(n: Int): Int {
+    var sum = 0
+    for (i in 1 .. n) {
+        sum += i
+    }
+    return sum
+}
