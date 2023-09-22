@@ -1,0 +1,45 @@
+import kotlin.random.Random
+import java.util.Scanner
+import kotlin.system.exitProcess
+
+fun main() {
+    val scanner = Scanner(System.`in`)
+
+    val secretNumber = Random.nextInt(1, 20)
+    var previousGuess: Int? = null
+    var life = 5
+    var tries = 0
+
+    println("Welcome to the Number Guessing Game!\n")
+    println("I have selected a secret number between 1 and 20.\n")
+    println("TRY YOUR LUCK AND GUESS THE NUMBER \n \n   [[ - WIN THIS AND PASS THIS SEMESTER HAHAHAHA! - ]]\n")
+
+    while (life > 0) {
+        print("Enter your guess: ")
+        val guess = scanner.nextInt()
+
+        if (guess == previousGuess) {
+            println("You already guessed $guess. Try a different number.")
+            continue
+        }
+
+        tries++
+        life--
+
+        if (guess < secretNumber) {
+            println("Too small! Try a larger number.")
+        } else if (guess > secretNumber) {
+            println("Too large! Try a smaller number.")
+        } else {
+            println("Congratulations! You guessed the secret number $secretNumber in $tries tries.")
+            break
+        }
+
+        previousGuess = guess
+    }
+
+    if (life == 0) {
+        println("\nGAME OVER! You have no more lives left. || -- You FAILED for this Semester! -- || ")
+        println("The Secret number was: $secretNumber")
+    }
+}
