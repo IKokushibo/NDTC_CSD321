@@ -1,0 +1,45 @@
+import java.util.Scanner
+
+fun main() {
+    val scanner = Scanner(System.`in`)
+
+
+    print("Enter a number (n): ")
+    val n = scanner.nextInt()
+    println("Choose an operation:")
+    println("1. Compute the sum")
+    println("2. Compute the product")
+    print("Enter your choice (1 or 2): ")
+
+    val choice = scanner.nextInt()
+
+    when (choice) {
+        1 -> {
+            val sum = calculateSum(n)
+            println("The sum of numbers from 1 to $n is: $sum")
+        }
+        2 -> {
+            val product = calculateProduct(n)
+            println("The product of numbers from 1 to $n is: $product")
+        }
+        else -> println("Invalid choice. Please enter 1 for sum or 2 for product.")
+    }
+
+    scanner.close()
+}
+
+fun calculateSum(n: Int): Int {
+    var sum = 0
+    for (i in 1..n) {
+        sum += i
+    }
+    return sum
+}
+
+fun calculateProduct(n: Int): Long {
+    var product: Long = 1
+    for (i in 1..n) {
+        product *= i
+    }
+    return product
+}
